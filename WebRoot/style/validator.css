@@ -1,0 +1,45 @@
+.onShow {
+	background: url(../image/formValidator/onShow.gif) no-repeat;
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.onFocus {
+	background: #E9F0FF url(../image/formValidator/onFocus.gif) no-repeat;
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.onError {
+	background: #FFF2E9 url(../image/formValidator/onError.gif) no-repeat;
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.onCorrect {
+	background: #E9FFEB url(../image/formValidator/onCorrect.gif) no-repeat;
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.onLoad {
+	background: #E9FFEB url(../image/formValidator/onLoad.gif) no-repeat 3px
+		3px;
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	display:inline-block;
+}

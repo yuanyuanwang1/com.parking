@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Base Service Begin -->
+
+
+	<bean id="parkingService" class="com.wy.parking.service.ParkingService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+
+	<bean id="orderInfoService" class="com.wy.parking.service.OrderInfoService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+
+	<bean id="moneyPaymentService" class="com.wy.parking.service.MoneyPaymentService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<property name="payInfoWxService" ref="payInfoWxService"></property>
+		<property name="parkingService" ref="parkingService"></property>
+		<property name="orderInfoService" ref="orderInfoService"></property>
+	</bean>
+
+	<bean id="payInfoWxService" class="com.wy.parking.service.PayInfoWxService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+
+
+	<bean id="tenpayParkingService" class="com.wy.parking.controller.tenpay.TenpayService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<property name="payInfoWxService" ref="payInfoWxService"></property>
+		<property name="tenpayNotify" ref="tenpayNotify"></property>
+		<property name="parkingService" ref="parkingService"></property>
+		<property name="orderInfoService" ref="orderInfoService"></property>
+
+	</bean>
+
+	<bean id="tenpayNotify" class="com.wy.parking.controller.tenpay.TenpayNotify">
+	</bean>
+
+	<bean id="wxpayService" class="com.wy.parking.service.WxpayService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+
+	<bean id="userService" class="com.wy.service.UserService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+
+	</bean>
+
+	<bean id="parkingOtherService" class="com.wy.parking.service.ParkingOtherService">
+		<property name="dongrenJdbcTemplate" ref="dongrenJdbcTemplate" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<property name="dataSource" ref="dongrenDataSource" />
+
+	</bean>
+
+
+</beans>

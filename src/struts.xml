@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.multipart.saveDir" value="c:/tmp" />
+	<constant name="struts.multipart.maxSize" value="1048576000" />
+
+	<constant name="struts.action.extension" value="action,do,html" />
+
+
+	<!-- 手机端 -->
+
+	<package name="/action/m/frontPage/passport" namespace="/action/m/frontPage/passport"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.m.frontPage.passport.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.m.frontPage.passport.{1}GetAction">
+			<result>/page/m/frontPage/passport/show{1}.jsp
+			</result>
+		</action>
+
+		<action name="OrderPost"
+			class="com.wy.parking.controller.m.frontPage.passport.OrderPostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">PayGet</param>
+				<param name="pid">${orderId} </param>
+				<param name="tenpayUrl">${tenpayUrl}</param>
+				<param name="parkId">${parkId}</param>
+			</result>
+		</action>
+
+		<action name="PayPost"
+			class="com.wy.parking.controller.m.frontPage.passport.PayPostAction">
+			<result name="success">
+				/page/m/frontPage/passport/showParkingPay.jsp
+			</result>
+		</action>
+
+
+		<action name="*Post"
+			class="com.wy.parking.controller.m.frontPage.passport.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/m/userCenter/error.jsp</result>
+		</action>
+
+		<action name="AlipaySuccessGet"
+			class="com.wy.parking.controller.m.frontPage.passport.AlipaySuccessGetAction">
+			<result name="input">
+				/page/m/frontPage/passport/showAlipaySuccess.jsp
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/tenpay" namespace="/action/tenpay"
+		extends="json-default">
+		<action name="tenpayNotifyDataParkingProcess"
+			class="com.wy.parking.controller.tenpay.TenpayNotifyDataParkingProcess">
+			<result name="success">
+				/page/tenpay/notifyDataProcess.jsp
+			</result>
+		</action>
+	</package>
+
+	<package name="/action/m/frontPage/passport/moneyPayment"
+		namespace="/action/m/frontPage/passport/moneyPayment" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.m.frontPage.passport.moneyPayment.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.m.frontPage.passport.moneyPayment.{1}GetAction">
+			<result>/page/m/frontPage/passport/moneyPayment/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.m.frontPage.passport.moneyPayment.{1}PostAction">
+			<result>/page/m/frontPage/passport/moneyPayment/show{1}.jsp</result>
+		</action>
+
+		<action name="wapAlipayNotifyDataProcessGet"
+			class="com.wy.parking.controller.m.frontPage.passport.moneyPayment.WapAlipayNotifyDataProcessGetAction">
+			<result name="success">
+				/page/m/frontPage/passport/moneyPayment/wapAlipayNotifyDataProcess.jsp
+			</result>
+		</action>
+
+	</package>
+
+
+	<!-- 用户前台登录 -->
+
+
+	<package name="/action/web/frontPage/passport" namespace="/action/web/frontPage/passport"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.frontPage.passport.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.frontPage.passport.{1}GetAction">
+			<result>/page/web/frontPage/passport/show{1}.jsp
+			</result>
+		</action>
+
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.frontPage.passport.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+		<action name="LoginPost"
+			class="com.wy.parking.controller.web.frontPage.passport.LoginPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+	</package>
+
+
+	<!-- 用户管理 后台统计分析管理 -->
+
+	<package name="/action/web/userCenter/admin" namespace="/action/web/userCenter/admin"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.{1}GetAction">
+			<result>/page/web/userCenter/admin/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+		<action name="LogoutGet"
+			class="com.wy.parking.controller.web.userCenter.admin.LogoutGetAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">LoginGet</param>
+				<param name="namespace">/action/web/frontPage/passport</param>
+			</result>
+			<result name="error">
+				/page/userCenter/error.jsp
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/selfInfo"
+		namespace="/action/web/userCenter/admin/selfInfo" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.selfInfo.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.selfInfo.{1}GetAction">
+			<result>/page/web/userCenter/admin/selfInfo/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.selfInfo.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+		<action name="ChangePassGet"
+			class="com.wy.parking.controller.web.userCenter.admin.selfInfo.ChangePassGetAction">
+			<result name="success">
+				/page/web/userCenter/admin/selfInfo/showChangePass.jsp
+			</result>
+			<result name="error">
+				/page/userCenter/admin/error.jsp
+			</result>
+		</action>
+
+		<action name="ChangePassPost"
+			class="com.wy.parking.controller.web.userCenter.admin.selfInfo.ChangePassPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+	</package>
+
+
+
+	<package name="/action/web/userCenter/admin/whiteList"
+		namespace="/action/web/userCenter/admin/whiteList" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.{1}GetAction">
+			<result>/page/web/userCenter/admin/whiteList/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+		<action name="AddPost"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.AddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OrderPost"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.OrderPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ImportPost"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.ImportPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<action name="OrderLastPost"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.OrderLastPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<action name="OrderChargePost"
+			class="com.wy.parking.controller.web.userCenter.admin.whiteList.OrderChargePostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+	</package>
+
+
+	<package name="/action/web/userCenter/admin/InCar" namespace="/action/web/userCenter/admin/InCar"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.InCar.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.InCar.{1}GetAction">
+			<result>/page/web/userCenter/admin/InCar/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.InCar.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/OutCar" namespace="/action/web/userCenter/admin/OutCar"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.OutCar.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.OutCar.{1}GetAction">
+			<result>/page/web/userCenter/admin/OutCar/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.OutCar.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/FlowRate"
+		namespace="/action/web/userCenter/admin/FlowRate" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.FlowRate.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.FlowRate.{1}GetAction">
+			<result>/page/web/userCenter/admin/FlowRate/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.FlowRate.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+
+	<package name="/action/web/userCenter/admin/Shifts" namespace="/action/web/userCenter/admin/Shifts"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.Shifts.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.Shifts.{1}GetAction">
+			<result>/page/web/userCenter/admin/Shifts/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.Shifts.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+
+	<package name="/action/web/userCenter/admin/ChargeRecord"
+		namespace="/action/web/userCenter/admin/ChargeRecord" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.ChargeRecord.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.ChargeRecord.{1}GetAction">
+			<result>/page/web/userCenter/admin/ChargeRecord/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.ChargeRecord.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+
+	<package name="/action/web/userCenter/admin/OtherParking"
+		namespace="/action/web/userCenter/admin/OtherParking" extends="json-default">
+
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.{1}GetAction">
+			<result>/page/web/userCenter/admin/OtherParking/show{1}.jsp</result>
+		</action>
+
+
+		<action name="AddPost"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.AddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ModifyPost"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.ModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherAddPost"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.OtherAddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherModifyPost"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.OtherModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherDeletePost"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.OtherDeletePostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">OtherListGet</param>
+				<param name="pid">${id}</param>
+			</result>
+
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.OtherParking.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/Online" namespace="/action/web/userCenter/admin/Online"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.Online.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.Online.{1}GetAction">
+			<result>/page/web/userCenter/admin/Online/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.Online.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/Payment" namespace="/action/web/userCenter/admin/Payment"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.Payment.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.Payment.{1}GetAction">
+			<result>/page/web/userCenter/admin/Payment/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.Payment.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+	<package name="/action/web/userCenter/admin/Order" namespace="/action/web/userCenter/admin/Order"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.web.userCenter.admin.Order.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.web.userCenter.admin.Order.{1}GetAction">
+			<result>/page/web/userCenter/admin/Order/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.web.userCenter.admin.Order.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+
+	</package>
+
+	<!-- 管理员后台登录界面 -->
+
+
+	<package name="/action/httppost/frontPage/passport" namespace="/action/httppost/frontPage/passport"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.frontPage.passport.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.frontPage.passport.{1}GetAction">
+			<result>/page/httppost/frontPage/passport/show{1}.jsp
+			</result>
+		</action>
+
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.frontPage.passport.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+		<action name="LoginPost"
+			class="com.wy.parking.controller.httppost.frontPage.passport.LoginPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/httppost/userCenter/admin" namespace="/action/httppost/userCenter/admin"
+		extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.userCenter.admin.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.userCenter.admin.{1}GetAction">
+			<result>/page/httppost/userCenter/admin/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.userCenter.admin.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+		<action name="LogoutGet"
+			class="com.wy.parking.controller.httppost.userCenter.admin.LogoutGetAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">LoginGet</param>
+				<param name="namespace">/action/httppost/frontPage/passport</param>
+			</result>
+			<result name="error">
+				/page/userCenter/error.jsp
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/httppost/userCenter/admin/selfInfo"
+		namespace="/action/httppost/userCenter/admin/selfInfo" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.userCenter.admin.selfInfo.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.userCenter.admin.selfInfo.{1}GetAction">
+			<result>/page/httppost/userCenter/admin/selfInfo/show{1}.jsp</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.userCenter.admin.selfInfo.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+		<action name="ChangePassGet"
+			class="com.wy.parking.controller.httppost.userCenter.admin.selfInfo.ChangePassGetAction">
+			<result name="success">
+				/page/httppost/userCenter/admin/selfInfo/showChangePass.jsp
+			</result>
+			<result name="error">
+				/page/userCenter/admin/error.jsp
+			</result>
+		</action>
+
+		<action name="ChangePassPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.selfInfo.ChangePassPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/httppost/userCenter/admin/parking"
+		namespace="/action/httppost/userCenter/admin/parking" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.{1}GetAction">
+			<result>/page/httppost/userCenter/admin/parking/show{1}.jsp</result>
+		</action>
+
+
+		<action name="AddPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.AddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ModifyPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.ModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherAddPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.OtherAddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherModifyPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.OtherModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="OtherDeletePost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.OtherDeletePostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">OtherListGet</param>
+			</result>
+
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.userCenter.admin.parking.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/httppost/userCenter/admin/alipay"
+		namespace="/action/httppost/userCenter/admin/alipay" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.userCenter.admin.alipay.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.userCenter.admin.alipay.{1}GetAction">
+			<result>/page/httppost/userCenter/admin/alipay/show{1}.jsp</result>
+		</action>
+
+
+		<action name="AddPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.alipay.AddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ModifyPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.alipay.ModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.userCenter.admin.alipay.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="/action/httppost/userCenter/admin/tenpay"
+		namespace="/action/httppost/userCenter/admin/tenpay" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.httppost.userCenter.admin.tenpay.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.httppost.userCenter.admin.tenpay.{1}GetAction">
+			<result>/page/httppost/userCenter/admin/tenpay/show{1}.jsp</result>
+		</action>
+
+
+		<action name="AddPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.tenpay.AddPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ModifyPost"
+			class="com.wy.parking.controller.httppost.userCenter.admin.tenpay.ModifyPostAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="*Post"
+			class="com.wy.parking.controller.httppost.userCenter.admin.tenpay.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/web/userCenter/error.jsp</result>
+		</action>
+
+
+	</package>
+
+	<!-- 手机端白名单录入管理 -->
+
+	<package name="/action/m/frontPage/passport/whiteList"
+		namespace="/action/m/frontPage/passport/whiteList" extends="json-default">
+
+		<action name="*Json"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.{1}JsonAction">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ParkIndexGet"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkIndexGetAction">
+
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+
+			<result name="success">/page/m/frontPage/passport/whiteList/showParkIndex.jsp
+			</result>
+		</action>
+
+		<action name="*Get"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.{1}GetAction">
+			<result>/page/m/frontPage/passport/whiteList/show{1}.jsp
+			</result>
+		</action>
+
+
+		<action name="ParkLoginPost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkLoginPostAction">
+
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<action name="*Post"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.{1}PostAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListGet</param>
+			</result>
+
+			<result name="error">/page/m/userCenter/error.jsp</result>
+		</action>
+
+		<action name="ParkAddPost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkAddPostAction">
+
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ParkModifyPost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkModifyPostAction">
+
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ParkDeletePost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkDeletePostAction">
+
+			<result name="success" type="redirectAction">
+				<param name="actionName">ParkUserListGet</param>
+			</result>
+
+			<result name="error">/page/m/userCenter/error.jsp</result>
+		</action>
+
+
+		<action name="ParkPassWordGet"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPassWordGetAction">
+
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+
+			<result name="success">/page/m/frontPage/passport/whiteList/showParkPassWord.jsp
+			</result>
+		</action>
+
+		<action name="ParkPassWordPost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPassWordPostAction">
+
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="ParkPresellGet"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPresellGetAction">
+
+			<result>
+				/page/m/frontPage/passport/whiteList/showParkPresell.jsp
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+		</action>
+
+
+		<action name="ParkPresellPost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPresellPostAction">
+
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+		</action>
+
+		<action name="ParkPresellListSelGet"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPresellListSelGetAction">
+
+
+			<result>
+				/page/m/frontPage/passport/whiteList/showParkPresellListSel.jsp
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+		</action>
+
+		<action name="ParkPresellListGet"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPresellListGetAction">
+
+<result>
+				/page/m/frontPage/passport/whiteList/showParkPresellList.jsp
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+		</action>
+
+	</package>
+
+
+</struts>

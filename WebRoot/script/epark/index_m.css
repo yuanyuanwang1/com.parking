@@ -1,0 +1,207 @@
+
+body{background-color: #FFFFFF;background-repeat: repeat-x;margin: 0px;padding:0px;font-size:14px;height:100%; min-width:320px;font-family: "微软雅黑", "Microsoft Yahei", arial, tahoma, "Hiragino Sans GB", "宋体";height:100%}
+.mobilebody{background: url(bg1.jpg);background-repeat: repeat-x;background-size:100%;}
+   .myinput{margin: 0px;padding:5px;height: 26px;line-height: 18px;border: 1px solid rgb(204, 204, 204);border-radius: 4px;background-color: rgb(255, 255, 255);box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 2px inset;vertical-align: middle;}
+   .myselect{ height:40px;margin: 0px;padding:5px 0;line-height: 24x;border: 1px solid rgb(204, 204, 204);border-radius: 4px;background-color: rgb(255, 255, 255);box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 2px inset;}
+   input,textarea,button { outline:none;}
+/**********************common**************************/
+button, input, select, textarea {
+    font-size: 18px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", tahoma,arial,"Hiragino Sans GB", "\5B8B\4F53";
+    color: #333333;
+}
+.box{ width:auto; border:#ffffff solid 0px; margin:0px 8px 0 8px; padding:0; font-size:16px;font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", tahoma,arial,"Hiragino Sans GB", "\5B8B\4F53";
+ /* @Key 透明度 R G B Alpha（不透明度为50%） */
+                background-color: rgba(99,175,157, 0.5);
+                /* @Key 圆角矩形 */
+                -moz-border-radius: 1em;
+                -webkit-border-radius: 1em;
+                border-radius: 1em;
+                /* @Key 投影 投影偏移3px，宽6px，颜色#666 */
+
+
+}
+ .topline,.bottomline{height:80px; width:auto; margin-bottom:0px; margin-top:0px; border-top:#ffffff solid 0px;border-bottom:#FFFFFF solid 0px;}
+.bottomline{height:90px;}
+.bottomline a{font-size:18px;}
+.top_title1{width:auto;padding:13px; text-align:center; vertical-align:middle;
+ background-color: rgba(99,175,157, 0.5);
+ 
+}
+.top_title{width:auto;padding:13px; text-align:center; vertical-align:middle;
+}
+.top_title span{ padding:2px 20px; border:#009966 solid 0px; font-size:18px; font-weight:bold; text-align:center;}
+.title1,title2{ width:auto;padding:2px 20px; border:#009966 solid 0px; font-size:18px; font-weight:bold; text-align:center;}
+.font1{font-size:24px; font-weight:bold;}.font2{font-size:20px}.color1{color:#ffffff}.color2{color:#FF0000}
+.cxboxout{overflow:hidden; margin-top:0px;}
+.cxbox{margin-top:-42px;}
+.bigad{width:1120px; margin-top:15px; border:#999999 solid 0px;}
+.middletext{font-size:28px; font-weight:bold; color:#ffffff; padding:10px;}
+.middletext b{color:#FF0000}
+.middletext span{font-size:18px; color:#eeeeee;}
+.middletitle{width:1120px; height:30px; margin-top:10px; margin-left:0px; background-color:#91C448; padding:20px 0;}
+.shadow{width:1120px; height:10px; background:url(shadow.png) no-repeat; background-position:0 -15px}
+.middlebox{width:1120px; margin-top:10px; margin-left:0px;}
+.liuyuanbox{width:1100px; margin-top:20px; border:#CCCCCC solid 2px; padding:10px;}
+.line1{width:auto; height:1px; background-color:#999999; margin-top:20px;}
+ 
+.sharetext{float:left; width:300px; font-size:24px; margin-right:10px; margin-left:240px; margin-bottom:20px; color:#009933}
+.sharebox{width:1120px;}
+.shadow2{width:auto; height:10px; background:url(shadow.png) no-repeat; background-position:0 -15px}
+.topbanner{width:1120px; text-align:center}
+.resultbox{width:1120px; height:350px; background-color:#FFFFFF; border:#CCCCCC solid 1px;}
+.result{width:1120px; background-color:#FFFFFF;}
+.shadow2,.shadow3,.top_title,.box,.line1,.bottom,.topline,.mobilebody{width:auto }
+.shadow3{height:10px; background:url(shadow.png) no-repeat; background-position:0 -20px;;}
+.btn{
+	height:45px;
+	line-height:45px;
+	border:0;
+	background-color:#fe4f02;
+	display:block;
+	clear:both;
+	color:#fff;
+	border-radius:6px;
+	width:90%;
+	margin:10px 5%;
+	font-size:120%;
+	-webkit-border-radius: 6px;
+}
+
+.inputbox{width:98%}
+.top2{width:auto; margin:5px;}
+.querybtn{ width:auto;margin:10px 10px;}
+.hpzl{ margin-right:0px;}
+.leftbox,.rightbox{width:50%; float:left;}
+.hphmjc{width:auto%; margin:10px 5px;}
+.hphmjc1,.hphmjc2{width:49%; }
+.hphmjc1{float:left;}
+.hphmjc2{ float:right;}
+.citysel,.hphmno{width:100%;  margin:10px 5px;}
+.hphmno{width:auto;  margin:10px 5px;}
+.selCity{width:auto; padding:5px;}
+ 
+/*========== 内容区块 ====================*/
+
+/*区块主体*/
+.block {
+    text-align: left;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.block .hd,
+.block .ft,
+.block .bd {
+    display: block;
+    clear: both;
+}
+
+/*区块标题*/
+.block .hd {
+    border-bottom: solid 1px #ddd;
+	height:30px;
+}
+.block .hd .right {
+    margin-right: 5px;
+}
+.block .hd h2,
+.block .hd strong {
+	font-weight:500;
+    float: left;
+	display:block; 
+}
+.block .hd strong,
+.block .hd .right{
+	padding:8px 10px;
+}
+.block .hd strong b{
+	color:#ff0000;
+}
+/*
+===== 区块列表 =================================
+blist = block list
+*/
+.blist{
+}
+.blist .block{
+	background-color:#fff;
+	margin:8px;
+	border:solid 1px #000000;
+	border-radius:5px;
+}
+.blist .block .hd{
+	padding:0 8px;
+}
+.blist .block .bd{
+	padding:10px;
+}
+.blist .block:hover{
+	background-color:#f0f0f0;
+}
+
+/*内容区*/
+.block .bd {
+    /*padding: 5px;*/
+}
+/*链接*/
+a {
+    color: #0064c8;
+    outline: none;
+    text-decoration: none
+}
+a:hover {
+    color: #000;
+}
+a img {
+    border: 0;
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+.hide {
+    display: none;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.left,
+.right {
+    display: inline;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+} 
+.content_one{padding:0 20px;}
+.content{text-align:left; margin: 0 20px;}
+.content ul li{ text-align:left;width:98%;}
+.content ul {text-align:left; width:100%;}
+.title3{background-color:#3caa0f;}
+.title3 h3{text-align:left; padding:10px 0 10px 20px; }
+.infobox{min-width:320px;margin:auto;}
+ul, li 
+{
+    padding: 0px;
+    margin: 0px;
+}
+li
+{
+    line-height: 22px;
+    list-style:none;
+}
+.citylist{ width:100%; background-color:#FFFFFF; text-align:center; padding-top:10px;}
+.citylist ul{width:95%;}
+.citylist ul li{
+	list-style-type:none; float:left; margin:5px; 
+}
+.citylist p{text-align:left;} 
+#line2,#line3{display:none;}
+.latequery{width:auto; color:#F60;} 
+#scroll_div{height:30px;margin:0 auto;white-space: nowrap;overflow:hidden;}
+#scroll_begin b{color:#F30;}
+.chaxuninfo{margin-top:0px; min-width:320px; margin:auto;}
+.banner_mobile{padding-top:8px;width:auto;}
+.banner_mobile span{color:#FFF; font-size:20px; line-height:45px; margin:0 5px;}
+.goback{float:right;}
+.chaxuninfo{max-width:640px;}
