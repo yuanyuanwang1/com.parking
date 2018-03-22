@@ -991,7 +991,7 @@
 		<action name="ParkPresellListGet"
 			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkPresellListGetAction">
 
-<result>
+			<result>
 				/page/m/frontPage/passport/whiteList/showParkPresellList.jsp
 			</result>
 			<result name="error" type="redirectAction">
@@ -999,6 +999,16 @@
 			</result>
 		</action>
 
+           <action name="ParkOverTimePost"
+			class="com.wy.parking.controller.m.frontPage.passport.whiteList.ParkOverTimePostAction">
+
+			<result>
+				/page/m/frontPage/passport/whiteList/showParkOverTimeList.jsp
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">ParkLoginGet</param>
+			</result>
+		</action>
 	</package>
 
 

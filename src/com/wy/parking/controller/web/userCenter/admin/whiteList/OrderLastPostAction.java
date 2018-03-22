@@ -246,9 +246,9 @@ public class OrderLastPostAction extends SuperAction {
 				
 				
 
-				// 给子级停车场增加白名单
+				// 给子级停车场延期
 
-				String paramLevel = "parkCode=" + parkNos + "&CarNo=" + cardCode
+				String paramLevel = "parkCode"+parkNos+"&OldCardIndate=" + OldCardIndate + "&CarNo=" + cardCode
 						+ "&NewCardIndate=" + CardIndate + "&PayAmount=" + PayAmount
 						+ "&Remark=" + Remark;
 
@@ -291,9 +291,9 @@ public class OrderLastPostAction extends SuperAction {
 
 		try {
 
-			jsonObject.put("resultCode", msg);
+			jsonObject.put("resultCode", code);
 
-			jsonObject.put("message", code);
+			jsonObject.put("message", msg);
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

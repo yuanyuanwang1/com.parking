@@ -54,7 +54,7 @@ function initmy_cphm()
 function CheckCar()
 {
 	UpdateCar();
-	if(!isRightNo(_Car.pjc+_Car.cjc+_Car.cphm))
+	if(!isVehicleNumber(_Car.pjc+_Car.cjc+_Car.cphm))
 	{
 		alert('车牌输入错误，请重新输入！');
 		return false;
@@ -74,6 +74,33 @@ function isRightNo(str)
 	var v=/(^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z_0-9](\d{5})|(\d{6})$)|(^[\u4E00-\u9FA5]{1}[A-Z0-9](\d{5})|(\d{6})[挂学警军港澳]{1}$)/;
 	return str.search(v)==-1?false:true;
 }
+
+//车牌号验证方法
+ 
+ function isVehicleNumber(vehicleNumber) {
+ 
+   var xreg=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}(([0-9]{5}[DF]$)|([DF][A-HJ-NP-Z0-9][0-9]{4}$))/;
+ 
+   var creg=/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1}$/;
+
+   
+   if(vehicleNumber.length == 7){
+	   
+
+      return creg.test(vehicleNumber);
+ 
+   } else if(vehicleNumber.length == 8){
+ 
+     return xreg.test(vehicleNumber);
+
+   } else{
+ 
+     return false;
+     
+   }
+ 
+ }
+
  
 function Jtrim(str){//删除空格
       var p=/\s/g;

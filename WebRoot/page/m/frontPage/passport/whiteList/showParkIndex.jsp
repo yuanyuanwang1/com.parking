@@ -85,10 +85,25 @@ font-family: microsoft yahei;
 				<td style="width:25%"></td></tr>
 				<tr><td colspan="4" style="height:10px;"></td></tr>
 				<tr style="text-align: center;width: 200px">
-				<td style="width:25%"><a href="ParkSelGet.action">查询管理</a></td>
+				<td style="width:25%"><a href="ParkSelGet.action">预约查询</a></td>
 				<td style="width:33%"><a href="ParkAddGet.action"><span style="padding-left: 50px">新增账号</span></a></td>
 				<td style="width:33%"><a href="ParkUserListGet.action"><span style="padding-left: 50px">账号列表</span></a></td>
-				<td style="width:0%">&nbsp;</td></tr>
+				<td style="width:0%"></td></tr>
+				
+				</table>
+				
+				<table>
+				<tr><td colspan="4" style="height:20px;"></td></tr>
+				<tr><td style="width:25%;"><a href="ParkOverTimeGet.action"><img src="<%=path%>/image/over_time.png"  style="width: 95%;"/></a></td>
+				<td style="width:25%">&nbsp;</td>
+				<td style="width:25%">&nbsp;</td>
+				<td style="width:25%">&nbsp;</td></tr>
+				<tr><td colspan="4" style="height:10px;"></td></tr>
+				<tr style="text-align: center;width: 200px">
+				<td style="width:25%"><a href="ParkOverTimeGet.action"><span>超时停放</span></a></td>
+				<td style="width:33%">&nbsp;</td>
+				<td style="width:33%">&nbsp;</td>
+				<td style="width:33%">&nbsp;</td></tr>
 				
 				</table>
 			<%} %>	

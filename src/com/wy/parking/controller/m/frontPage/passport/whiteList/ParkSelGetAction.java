@@ -137,7 +137,17 @@ public class ParkSelGetAction extends SuperAction {
 
 					resultMap.put("parkCode", job.get("parkCode"));
 
-					resultMap.put("parkName", job.get("parkName"));
+                 Map<String,Object> maps=parkingOtherService.getParkNo(job.get("parkCode").toString());
+					
+					if(maps!=null)
+					{
+						resultMap.put("parkName",maps.get("pname"));
+	
+					}else
+					{
+						resultMap.put("parkName",job.get("parkCode"));
+					}
+
 
 					list.add(resultMap);
 

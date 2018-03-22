@@ -66,6 +66,8 @@ public abstract class SuperAction extends ActionSupport implements
 	protected String dateNow = null;
 	
 
+	
+
 	public String getDateNow() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -116,7 +116,7 @@ public class ParkingOtherService extends SuperService {
 	public Map<String, Object> getMapOnePname(String pname) {
 
 		String sql = " select t.* from parking_user t where t.pname = '"
-				+ pname + "' ";
+				+ pname + "' and status='1'";
 
 		return dongrenJdbcTemplate.queryForMap(sql);
 

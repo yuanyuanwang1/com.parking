@@ -62,19 +62,19 @@
 	<div class="fullscreen per_login" style="margin-top: 12px;">
 		<div class="alert"></div>
 
-		<span style="color:#289ED7;font-size: 20px">车场下发预约情况查询</span>
+		<span style="color:#289ED7;font-size: 20px">车场预约超时情况查询</span>
 
 		<section class="inner_content" style="padding-top: 10px;">
 
 			<form id="loginform" name="loginform" method="post"
-				action="ParkSelListGet.action">
+				action="ParkOverTimePost.action">
 				<table>
 					<tr>
 						<td><img src="<%=path%>/image/check1.png"
 							style="width:45%;height:45%;vertical-align: top;">
 						</td>
-						<td><input id="startDate" name="startDate" type="date"
-							value="${startDate }" class="timeSel"
+						<td><input id="FromTime" name="FromTime" type="date"
+							value="${FromTime }" class="timeSel"
 							style="vertical-align: top;" />
 					</tr>
 					<tr>
@@ -83,8 +83,8 @@
 					<tr>
 						<td><img src="<%=path%>/image/check1.png"
 							style="width:45%;height:45%;vertical-align: top;"></td>
-						<td><input id="endDate" name="endDate" type="date"
-							value="${endDate }" class="timeSel" style="vertical-align: top;" />
+						<td><input id="ToTime" name="ToTime" type="date"
+							value="${ToTime }" class="timeSel" style="vertical-align: top;" />
 						</td>
 					</tr>
 					<tr>
@@ -94,7 +94,7 @@
 						<td><img src="<%=path%>/image/titlename.png"
 							style="width:45%;height:45%;vertical-align: top;">
 						</td>
-						<td><select class="jqSel" name="parkCode" id="parkCode"
+						<td><select class="jqSel" name="parkNos" id="parkNos"
 							style="vertical-align: top;">
 								<%
 									if (list != null) {
@@ -115,8 +115,8 @@
 						<td><img src="<%=path%>/image/search.png"
 							style="width:45%;height:45%;">
 						</td>
-						<td><input id="searchValue" name="searchValue" type="text"
-							value="" class="timeSel"
+						<td><input id="carNo" name="carNo" type="text"
+							value="" placeholder="请输入车牌号" class="timeSel" 
 							style="vertical-align: top;margin-top: -10px;" />
 							</div></td>
 					</tr>
